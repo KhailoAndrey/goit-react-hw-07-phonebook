@@ -6,13 +6,9 @@ import { getFilter } from 'redux/filterSlice';
 export const Filter = () => {
   const filterData = useSelector(state => state.filters);
   const dispatch = useDispatch();
-
-
   function filterValue(e) {
-  dispatch(getFilter(e.currentTarget.value))
-    
+  dispatch(getFilter(e.currentTarget.value))    
   }
-
   return (
     <Wrapper>
       <Title>Contacts</Title>
@@ -21,5 +17,4 @@ export const Filter = () => {
     </Wrapper>
   );
 };
-
 

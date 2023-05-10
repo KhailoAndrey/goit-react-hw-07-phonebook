@@ -8,8 +8,7 @@ import {
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from 'redux/AddContactsSlice';
-
+import { fetchAdContacts } from 'redux/option';
 
 export function ContactForm() {
   const [name, setName] = useState('');
@@ -20,7 +19,8 @@ export function ContactForm() {
     number,
   };
 
-  const contacts = useSelector(state => state.contacts);
+  const { items: contacts } = useSelector(state => state.contacts.contacts);
+
   const dispatch = useDispatch();
 
   function handleValue(e) {
@@ -42,14 +42,14 @@ export function ContactForm() {
     );
   }
 
-function addContacts ({ name, number }) {
+  function addContacts({ name, number }) {
     if (!checkNewName(name)) {
       const contact = {
         id: nanoid(),
         name,
         number,
       };
-      dispatch(addContact(contact));
+      dispatch(fetchAdContacts(contact));
     } else {
       alert(`${name} is already in contacts!`);
     }
@@ -69,7 +69,7 @@ function addContacts ({ name, number }) {
   return (
     <Wrapper>
       <Title>Phonebook</Title>
-      <AddBox onSubmit={handleSubmit} name='addContact'>
+      <AddBox onSubmit={handleSubmit} name="addContact">
         <Label>Name</Label>
         <input
           type="text"
@@ -94,12 +94,14 @@ function addContacts ({ name, number }) {
           title="Номер телефона может состоять только из цифр и тире."
           required
         />
-        <AddContactButton type="submit" onClick={handleSubmit} name='addContact'>
+        <AddContactButton
+          type="submit"
+          onClick={handleSubmit}
+          name="addContact"
+        >
           Add contact
         </AddContactButton>
       </AddBox>
     </Wrapper>
   );
 }
-
-
