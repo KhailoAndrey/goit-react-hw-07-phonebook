@@ -4,6 +4,7 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/option';
+import { Main } from './App.styled';
 
 export function App() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <div>
+    <Main>
       <ContactForm />
       <Filter />
       {isLoading && <b>Загрузка...</b>}
@@ -25,6 +26,6 @@ export function App() {
       ) : (
         <h3>Здесь пока нет ни одного контакта...</h3>
       )}
-    </div>
+    </Main>
   );
 }
