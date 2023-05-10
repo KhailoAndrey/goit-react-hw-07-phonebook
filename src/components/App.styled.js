@@ -11,3 +11,11 @@ border-top-right-radius: 40px;
 border-top-left-radius: 40px;
 min-height: 100vh;
 `
+export const Message = styled.h5`
+display: flex;
+justify-content: center;
+width: 90%;
+/* background-color: #fff; */
+margin-left: auto;
+margin-right: auto;
+`
