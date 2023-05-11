@@ -11,6 +11,7 @@ body {
   background-image: url('./images/back.jpg');
   background-repeat:repeat-y ;
   background-size: 100vw;
+  background-attachment: fixed;
 }
 
 code {
