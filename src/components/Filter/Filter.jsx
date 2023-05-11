@@ -1,10 +1,11 @@
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Wrapper, Label, Title, Input } from './Filter.styled';
 import { getFilter } from 'redux/filterSlice';
+import { selectFilter } from 'redux/selectors';
 
 export const Filter = () => {
-  const filterData = useSelector(state => state.filters);
+  // const filterData = useSelector(state => state.filters);
   const dispatch = useDispatch();
   function filterValue(e) {
   dispatch(getFilter(e.currentTarget.value))    
@@ -16,7 +17,7 @@ export const Filter = () => {
       <Input
         type="text"
         placeholder="Начните вводить имя"
-        value={filterData}
+        value={selectFilter}
         onChange={filterValue}
       />
     </Wrapper>
