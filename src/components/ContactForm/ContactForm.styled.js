@@ -32,7 +32,7 @@ export const Label = styled.h3`
   font-size: 20px;
   font-weight: 600;
   font-style: italic;
-  color: #7730CA;
+  color: #7C17DA;
 `;
 
 export const AddContactButton = styled.button`
