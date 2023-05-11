@@ -6,7 +6,13 @@ top: 5%;
 margin-left: 43vw;
 /* margin-top: 7vw; */
 width: 41vw;
-background-color: #E58E3C;
+background-image: linear-gradient(
+  to bottom,
+  /* #f44336 15%, */
+  /* #09792b 40%, */
+  #00b9ff 0%,
+  #ffb800
+);
 border-top-right-radius: 40px;
 border-top-left-radius: 40px;
 min-height: 100vh;
