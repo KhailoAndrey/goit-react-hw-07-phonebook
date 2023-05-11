@@ -1,10 +1,10 @@
 import { fetchDelContacts } from 'redux/option';
 import { Wrapper, List, ListItem, Button } from './ContactList.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/selectors';
 
 export function ContactList() {
-  // const filterData = useSelector(state => state.contacts.filters);
+  const filterData = useSelector(selectVisibleContacts);
   // const { items: contacts } = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
   // const lowCase = filterData.toLowerCase();
@@ -15,9 +15,9 @@ export function ContactList() {
   return (
     <Wrapper>
       <List>
-        {selectVisibleContacts.length > 0 ? (
+        {filterData.length > 0 ? (
           <>
-            {selectVisibleContacts.map(contact => (
+            {filterData.map(contact => (
               <ListItem key={contact.id}>
                 <span>{contact.name}: </span>
                 <span>{contact.number}</span>

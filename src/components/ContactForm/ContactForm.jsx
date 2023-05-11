@@ -7,7 +7,7 @@ import {
   Input,
 } from './ContactForm.styled';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { fetchAdContacts } from 'redux/option';
 import { selectContacts } from 'redux/selectors';
@@ -21,8 +21,8 @@ export function ContactForm() {
     number,
   };
 
+  const contacts = useSelector(selectContacts);
   // const { items: contacts } = useSelector(state => state.contacts.contacts);
-
   const dispatch = useDispatch();
 
   function handleValue(e) {
@@ -39,7 +39,7 @@ export function ContactForm() {
   }
 
   function checkNewName(newName) {
-    return selectContacts.find(
+    return contacts.find(
       ({ name }) => name.toLowerCase() === newName.toLowerCase()
     );
   }
